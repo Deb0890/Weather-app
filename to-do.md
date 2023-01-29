@@ -1,6 +1,8 @@
 [] Use fetch
 [] Use weather api (open weather)
-[] Pull weather updates for the week
-[] Option for pulling weather from any date in history
-[] simple ui
-[] just making a point
+[] Weather from history
+[] Specific city buttons
+[] Any country/city (search function)
+[] Search should contain weather updates for the week
+[] Different pages
+[] simple ui - link an image to certain weather?
