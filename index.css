@@ -3,6 +3,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background: linear-gradient(
+    to bottom,
+    #00ffff 11.42%,
+    rgba(0, 255, 255, 0) 100%
+  );
+}
+
 h1 {
   text-align: center;
   margin: 15px;
@@ -10,12 +18,30 @@ h1 {
 
 #buttons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin: 15px;
 }
 
+button {
+  width: 120px;
+}
+
+form {
+  text-align: center;
+}
+
 #weather-output {
+  display: flex;
+  justify-content: center;
+}
+
+#weather-output div {
   width: 321px;
   height: 445px;
-  background-color: yellow;
+  margin-top: 15px;
+  /* position: absolute;
+  top: 150px;
+  left: 480px; */
+  border-radius: 15px;
+  background: #d9d9d9;
 }
