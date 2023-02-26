@@ -4,6 +4,8 @@ const seoul = document.querySelector("#seoul");
 const form = document.querySelector("#form");
 const weatherOutput = document.querySelector("#weather-output").innerHTML;
 
+// Loading click event listeners
+
 newYork.addEventListener("click", () => {
   getWeather("new+york");
 });
@@ -15,10 +17,15 @@ london.addEventListener("click", () => {
 seoul.addEventListener("click", () => {
   getWeather("seoul");
 });
-// Loading click event listeners
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const inputValue = form.search.value;
+  getWeather(inputValue);
+});
+
 // let loadEvents = (city) => {
-// newYork.addEventListener("click");
-// seoul.addEventListener("click");
+
 // };
 
 //async/await version
