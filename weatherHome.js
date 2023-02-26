@@ -4,14 +4,22 @@ const seoul = document.querySelector("#seoul");
 const form = document.querySelector("#form");
 const weatherOutput = document.querySelector("#weather-output").innerHTML;
 
+newYork.addEventListener("click", () => {
+  getWeather("new+york");
+});
+
+london.addEventListener("click", () => {
+  getWeather("london");
+});
+
+seoul.addEventListener("click", () => {
+  getWeather("seoul");
+});
 // Loading click event listeners
-let loadEvents = () => {
-  // newYork.addEventListener("click");
-  london.addEventListener("click", () => {
-    console.log("click");
-  });
-  // seoul.addEventListener("click");
-};
+// let loadEvents = (city) => {
+// newYork.addEventListener("click");
+// seoul.addEventListener("click");
+// };
 
 //async/await version
 const getWeather = async (city) => {
@@ -19,7 +27,8 @@ const getWeather = async (city) => {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKEY}`;
   const response = await fetch(url);
   const data = await response.json();
+  console.log(data);
   return data;
 };
 
-loadEvents();
+// loadEvents();
