@@ -2,6 +2,7 @@
 [x] Use weather api (e.g. open weather)
 [] Specific city buttons and home page London only with hourly(?) forecast  
 [] Any country/city (search function?)
+[] Clear input field
 [] simple ui - link an image to certain weather?
 
 Nice to haves
