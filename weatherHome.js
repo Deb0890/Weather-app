@@ -5,9 +5,11 @@ const form = document.querySelector("#form");
 const inputValue = form.search.value;
 //ui selectors
 const cityName = document.querySelector("#city-name");
-
-// ui
-
+const weatherIcon = document.querySelector("img");
+const temp = document.querySelector("#temp");
+const description = document.querySelector("#description");
+const date = document.querySelector("#when");
+// ui;
 // Loading click event listeners
 
 newYork.addEventListener("click", () => {
@@ -30,12 +32,24 @@ form.addEventListener("submit", (e) => {
 //async/await version
 const getWeather = async (city) => {
   const apiKEY = "65de1f2f61fa4ff89b36f5621ee703df";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKEY}`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKEY}&units=metric`;
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data.name);
+  console.log(data);
+
+  //datetime conversion
+  const dateString = new Date(data.dt * 1000).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 
   cityName.textContent = data.name;
+  temp.textContent = Math.floor(data.main.temp);
+  description.textContent = data.weather[0].description;
+  date.textContent = dateString;
+
+  // console.log(temp);
 
   return data;
 };
