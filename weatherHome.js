@@ -44,12 +44,16 @@ const getWeather = async (city) => {
     year: "numeric",
   });
 
+  // weather icon
+  const icon = data.weather[0].icon;
+  const weatherIconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+
+  //adding to ui
   cityName.textContent = data.name;
   temp.textContent = Math.floor(data.main.temp);
   description.textContent = data.weather[0].description;
+  weatherIcon.src = weatherIconUrl;
   date.textContent = dateString;
-
-  // console.log(temp);
 
   return data;
 };
