@@ -2,7 +2,8 @@ const newYork = document.querySelector("#new-york");
 const london = document.querySelector("#london");
 const seoul = document.querySelector("#seoul");
 const form = document.querySelector("#form");
-const inputValue = form.search.value;
+const inputField = document.querySelector("#search");
+
 //ui selectors
 const cityName = document.querySelector("#city-name");
 const weatherIcon = document.querySelector("img");
@@ -26,10 +27,10 @@ seoul.addEventListener("click", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  getWeather(inputValue);
+  getWeather(inputField.value);
 });
 
-//async/await version
+//main function ?
 const getWeather = async (city) => {
   const apiKEY = "65de1f2f61fa4ff89b36f5621ee703df";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKEY}&units=metric`;
