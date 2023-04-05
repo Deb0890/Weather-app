@@ -28,6 +28,7 @@ seoul.addEventListener("click", () => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   getWeather(inputField.value);
+  inputField.value = "";
 });
 
 //main function ?
