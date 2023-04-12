@@ -3,8 +3,9 @@
 [x] Specific city buttons and home page London only with hourly(?) forecast  
 [x] Any country/city (search function?)
 [x] Clear input field
+[x] simple ui - link an image to certain weather?
 [] Error handling
-[] simple ui - link an image to certain weather?
+[] Tidy up UI
 
 Nice to haves
 [] Weather from history

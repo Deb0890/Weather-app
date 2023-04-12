@@ -8,6 +8,7 @@ const inputField = document.querySelector("#search");
 const cityName = document.querySelector("#city-name");
 const weatherIcon = document.querySelector("img");
 const temp = document.querySelector("#temp");
+const celsius = document.querySelector("span");
 const description = document.querySelector("#description");
 const date = document.querySelector("#when");
 // ui;
@@ -54,6 +55,7 @@ const getWeather = async (city) => {
     //adding to ui
     cityName.textContent = data.name;
     temp.textContent = Math.floor(data.main.temp);
+    celsius.innerHTML = "<span>&#8451;</span>";
     description.textContent = data.weather[0].description;
     weatherIcon.src = weatherIconUrl;
     date.textContent = dateString;
