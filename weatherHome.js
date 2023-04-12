@@ -35,27 +35,31 @@ form.addEventListener("submit", (e) => {
 const getWeather = async (city) => {
   const apiKEY = "65de1f2f61fa4ff89b36f5621ee703df";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKEY}&units=metric`;
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log(data);
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
 
-  //datetime conversion
-  const dateString = new Date(data.dt * 1000).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+    //datetime conversion
+    const dateString = new Date(data.dt * 1000).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
 
-  // weather icon
-  const icon = data.weather[0].icon;
-  const weatherIconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+    // weather icon
+    const icon = data.weather[0].icon;
+    const weatherIconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
-  //adding to ui
-  cityName.textContent = data.name;
-  temp.textContent = Math.floor(data.main.temp);
-  description.textContent = data.weather[0].description;
-  weatherIcon.src = weatherIconUrl;
-  date.textContent = dateString;
+    //adding to ui
+    cityName.textContent = data.name;
+    temp.textContent = Math.floor(data.main.temp);
+    description.textContent = data.weather[0].description;
+    weatherIcon.src = weatherIconUrl;
+    date.textContent = dateString;
 
-  return data;
+    return data;
+  } catch (err) {
+    alert((err = "City not found. Please check and try again."));
+  }
 };
